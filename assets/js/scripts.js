@@ -4,12 +4,13 @@ let currentDirection = 'to bottom';
 let outputCode = document.getElementById("code");
 
 function setDirection(value, _this) {
-    let direcrtions = document.querySelectorAll(".buttons button");
-    for (let i of direcrtions) {
+    let directions = document.querySelectorAll(".buttons button");
+    for (let i of directions) {
         i.classList.remove("active");
     }
     _this.classList.add("active");
     currentDirection = value;
+    generateCode(); // Atualiza o código gerado quando a direção é alterada
 }
 
 function generateCode() {
@@ -19,9 +20,8 @@ function generateCode() {
 
 function copyText() {
     outputCode.select();
-    document.execCommand('Copiar');
-    alert("Gradiente copiado com socesso!");
+    document.execCommand('copy'); // Comando correto para copiar o texto
+    alert("Gradiente copiado com sucesso!");
 }
-
 
 generateCode();
